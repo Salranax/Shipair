@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     public GameObject errorMessage;
+    public Slider healthBar;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,5 +19,9 @@ public class UIManager : MonoBehaviour
 
     public void noCrewError(){
         errorMessage.SetActive(true);
+    }
+
+    public void updateHealthBar(){
+        healthBar.value = GameManager.instance.getHealth();
     }
 }

@@ -11,6 +11,7 @@ public class RepairStage : MonoBehaviour
     private float repairTime;
     private float timePassed;
     private CrewMember assignedCrew;
+    private float damagesSecons = 1f;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,10 @@ public class RepairStage : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+        else{
+           GameManager.instance.giveDamage(damagesSecons * Time.deltaTime); 
+        }
+
     }
 
     public void startRepair(){
@@ -53,7 +58,6 @@ public class RepairStage : MonoBehaviour
         }
         else{
             UIManager.instance.noCrewError();
-            Debug.Log("No member available");
         }
     }
 }
